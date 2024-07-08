@@ -1,0 +1,33 @@
+﻿@model List<AuctionX.Models.Listing>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Active Listings</h1>
+
+    @foreach (var listing in Model)
+    {
+        <div class="container" style="background-color:antiquewhite; margin-top:50px;margin-bottom:50px; padding:20px; border-radius: 10px;">
+            <div class="row">
+                <div class="col col-xs-6 col-lg-5">
+                    <img src="~/image/@listing.ImagePath" style="max-width: 400px; max-height:400px;"/>
+                </div>
+                
+                <div class="col col-xs-6 col-lg-7">
+                    <h5>
+                        <a asp-action="Details" asp-route-id="@listing.Id" style="color:black">@listing.Titile</a>
+                    </h5>
+                    <div>@listing.Description</div>
+                    <div>Bid: @listing.Price.ToString("N2")</div> @* number ekt passe 00 daanna *@ 
+                    <div>Listed By: @listing.User.Email</div>
+                </div>
+            </div>
+        </div>    
+    }
+
+@if (!Model.Any())
+{
+        <p>Sorry , there are no active listings</p>
+}
+
