@@ -46,16 +46,15 @@ namespace AuctionX.Controllers
         //    return View(listing);
         //}
 
-        //// GET: Listings/Create
-        //public IActionResult Create()
-        //{
-        //    ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id");
-        //    return View();
-        //}
+        // GET: Listings/Create
+        public IActionResult Create()
+        {
+            return View();
+        }
 
-        //// POST: Listings/Create
-        //// To protect from overposting attacks, enable the specific properties you want to bind to.
-        //// For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST: Listings/Create
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         //[HttpPost]
         //[ValidateAntiForgeryToken]
         //public async Task<IActionResult> Create([Bind("Id,Titile,Description,Price,ImagePath,IsSold,IdentityUserId")] Listing listing)
