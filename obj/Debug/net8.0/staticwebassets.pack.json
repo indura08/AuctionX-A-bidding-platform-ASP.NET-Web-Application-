@@ -13,6 +13,10 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "F:\\intern projecrts\\AuctionX .net web project\\AuctionX\\wwwroot\\images\\9fce00cfde9bde606a33f95ee1f3d6f1.jpg",
+      "PackagePath": "staticwebassets\\images\\9fce00cfde9bde606a33f95ee1f3d6f1.jpg"
+    },
+    {
       "Id": "F:\\intern projecrts\\AuctionX .net web project\\AuctionX\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

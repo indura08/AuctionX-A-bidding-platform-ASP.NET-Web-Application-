@@ -14,10 +14,12 @@ namespace AuctionX.Controllers
     public class ListingsController : Controller
     {
         private readonly IListings _listingService;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public ListingsController(IListings listingService)  
+        public ListingsController(IListings listingService, IWebHostEnvironment webHostEnvironment)  
         {
             _listingService = listingService;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         // GET: Listings
@@ -28,23 +30,22 @@ namespace AuctionX.Controllers
         }
 
         // GET: Listings/Details/5
-        //public async Task<IActionResult> Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+        public async Task<IActionResult> Details(int? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-        //    var listing = await _context.Listings
-        //        .Include(l => l.User)
-        //        .FirstOrDefaultAsync(m => m.Id == id);
-        //    if (listing == null)
-        //    {
-        //        return NotFound();
-        //    }
+            var listing = await _listingService.GetById(id);
 
-        //    return View(listing);
-        //}
+            if (listing == null)
+            {
+                return NotFound();
+            }
+
+            return View(listing);
+        }
 
         // GET: Listings/Create
         public IActionResult Create()
@@ -55,19 +56,33 @@ namespace AuctionX.Controllers
         // POST: Listings/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //[HttpPost]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> Create([Bind("Id,Titile,Description,Price,ImagePath,IsSold,IdentityUserId")] Listing listing)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        _context.Add(listing);
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction(nameof(Index));
-        //    }
-        //    ViewData["IdentityUserId"] = new SelectList(_context.Users, "Id", "Id", listing.IdentityUserId);
-        //    return View(listing);
-        //}
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(ListingVM listing)
+        {
+            if (listing.Image != null) {
+                string uploadDir = Path.Combine(_webHostEnvironment.WebRootPath, "Images");
+                string fileName = listing.Image.FileName;
+                string filePath = Path.Combine(uploadDir, fileName);
+                using (var fileStream = new FileStream(filePath, FileMode.Create)) { 
+                    
+                    listing.Image.CopyTo(fileStream);
+                
+                }
+                var listObj = new Listing
+                {
+                    Titile = listing.Titile,
+                    Description = listing.Description,
+                    Price = listing.Price,
+                    IdentityUserId = listing.IdentityUserId,
+                    ImagePath = filePath,
+                };
+
+                await _listingService.Add(listObj);
+                return RedirectToAction("Index");
+            }
+            return View(listing);
+        }
 
         //// GET: Listings/Edit/5
         //public async Task<IActionResult> Edit(int? id)
