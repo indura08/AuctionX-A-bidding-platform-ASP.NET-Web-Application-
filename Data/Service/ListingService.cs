@@ -36,5 +36,9 @@ namespace AuctionX.Data.Service
             return listing;
         }
 
+        public async Task SaveChnages()
+        {
+            await _context.SaveChangesAsync();
+        }
     }
 }

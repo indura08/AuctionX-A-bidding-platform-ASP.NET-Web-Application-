@@ -9,5 +9,7 @@ namespace AuctionX.Data.Service
         Task Add(Listing listing);
 
         Task<Listing> GetById(int? id);
+
+        Task SaveChnages();
     }
 }
