@@ -23,10 +23,18 @@ namespace AuctionX.Controllers
         }
 
         // GET: Listings
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(int? pageNumber, string searchString)
         {
             var applicationDbContext = _listingService.Getall();
-            return View(await applicationDbContext.ToListAsync());
+
+            int pageSize = 3;
+            if (!string.IsNullOrEmpty(searchString))
+            {
+                applicationDbContext = applicationDbContext.Where(a => a.Titile.Contains(searchString));
+                return View(await PaginatedList<Listing>.CreateAsync(applicationDbContext.Where(l => l.IsSold == false).AsNoTracking(), pageNumber ?? 1, pageSize));
+
+            }
+            return View(await PaginatedList<Listing>.CreateAsync(applicationDbContext.Where(l => l.IsSold == false).AsNoTracking(), pageNumber ?? 1, pageSize));
         }
 
         // GET: Listings/Details/5

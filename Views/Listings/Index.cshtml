@@ -1,4 +1,4 @@
-﻿@model List<AuctionX.Models.Listing>
+﻿@model PaginatedList<AuctionX.Models.Listing>
 
 @{
     ViewData["Title"] = "Index";
@@ -29,5 +29,9 @@
 @if (!Model.Any())
 {
         <p>Sorry , there are no active listings</p>
+}
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
 }
 
