@@ -116,6 +116,7 @@ namespace AuctionX.Controllers
         public async Task<ActionResult> CloseBidding(int id)
         {
             var listing = await _listingService.GetById(id);
+
             listing.IsSold = true;
             await _listingService.SaveChnages();
 
