@@ -97,16 +97,20 @@ namespace AuctionX.Controllers
         [HttpPost]
         public async Task<ActionResult> AddBid([Bind("Id , Price , ListingId, IdentityUserId")] Bid bid)
         {
-            if (ModelState.IsValid)
-            {
-                await _bidService.Add(bid);
-            }
+            //if (ModelState.IsValid)
+            //{
+            //    await _bidService.Add(bid);
+            //}  //me if statement ekn error ekk awa eka podk blnna 
+
+            await _bidService.Add(bid);
+
             var listing = await _listingService.GetById(bid.ListingId);
 
             listing.Price = bid.Price;
             await _listingService.SaveChnages();
 
             return View("Details", listing);
+
         }
 
         public async Task<ActionResult> CloseBidding(int id)
