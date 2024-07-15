@@ -57,7 +57,7 @@ namespace AuctionX.Controllers
 
             int pageSize = 3;
 
-            return View("Index", await PaginatedList<Bid>.CreateAsync(applicationDbContext.Where(l => l.IdentityUserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).AsNoTracking(), pageNumber ?? 1, pageSize));      //methandi me complex process ekk wage krla thiynne log wela inna usermada me api gattu listings list eke aithi user kiyla check krla blna eka, ehma nm withri listings tiks denne 
+            return View(await PaginatedList<Bid>.CreateAsync(applicationDbContext.Where(l => l.IdentityUserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).AsNoTracking(), pageNumber ?? 1, pageSize));      //methandi me complex process ekk wage krla thiynne log wela inna usermada me api gattu listings list eke aithi user kiyla check krla blna eka, ehma nm withri listings tiks denne 
         }
 
         // GET: Listings/Details/5
@@ -92,7 +92,7 @@ namespace AuctionX.Controllers
         public async Task<IActionResult> Create(ListingVM listing)
         {
             if (listing.Image != null) {
-                string uploadDir = Path.Combine(_webHostEnvironment.WebRootPath, "Images");
+                string uploadDir = Path.Combine(_webHostEnvironment.WebRootPath, "images");
                 string fileName = listing.Image.FileName;
                 string filePath = Path.Combine(uploadDir, fileName);
                 using (var fileStream = new FileStream(filePath, FileMode.Create)) { 
@@ -106,7 +106,7 @@ namespace AuctionX.Controllers
                     Description = listing.Description,
                     Price = listing.Price,
                     IdentityUserId = listing.IdentityUserId,
-                    ImagePath = filePath,
+                    ImagePath = fileName,
                 };
 
                 await _listingService.Add(listObj);

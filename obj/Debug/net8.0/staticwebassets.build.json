@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "BrIftOHvf48xRHubuLAWRD1e3NY60g0qTQD0NemgTGM=",
+  "Hash": "Yt3RnXnmXHaiWlGiweMO8XuiKzcOezIRJDJNT2vohiM=",
   "Source": "AuctionX",
   "BasePath": "_content/AuctionX",
   "Mode": "Default",
@@ -1288,6 +1288,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\class diagram.png"
+    },
+    {
+      "Identity": "F:\\intern projecrts\\AuctionX .net web project\\AuctionX\\wwwroot\\images\\KT0060BS01_20CHAMPAGNE-6_2000x3001.jpg",
+      "SourceId": "AuctionX",
+      "SourceType": "Discovered",
+      "ContentRoot": "F:\\intern projecrts\\AuctionX .net web project\\AuctionX\\wwwroot\\",
+      "BasePath": "_content/AuctionX",
+      "RelativePath": "images/KT0060BS01_20CHAMPAGNE-6_2000x3001.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\KT0060BS01_20CHAMPAGNE-6_2000x3001.jpg"
     },
     {
       "Identity": "F:\\intern projecrts\\AuctionX .net web project\\AuctionX\\wwwroot\\js\\site.js",

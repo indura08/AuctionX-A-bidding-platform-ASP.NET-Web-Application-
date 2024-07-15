@@ -287,6 +287,10 @@ F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\appsetti
 F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\appsettings.json
 F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\AuctionX.staticwebassets.runtime.json
 F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\AuctionX.exe
+F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\AuctionX.deps.json
+F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\AuctionX.runtimeconfig.json
+F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\AuctionX.dll
+F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\AuctionX.pdb
 F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\Azure.Core.dll
 F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\Azure.Identity.dll
 F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\Humanizer.dll
@@ -563,9 +567,5 @@ F:\intern projecrts\AuctionX .net web project\AuctionX\obj\Debug\net8.0\AuctionX
 F:\intern projecrts\AuctionX .net web project\AuctionX\obj\Debug\net8.0\AuctionX.dll
 F:\intern projecrts\AuctionX .net web project\AuctionX\obj\Debug\net8.0\refint\AuctionX.dll
 F:\intern projecrts\AuctionX .net web project\AuctionX\obj\Debug\net8.0\AuctionX.pdb
-F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\AuctionX.deps.json
-F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\AuctionX.runtimeconfig.json
-F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\AuctionX.dll
-F:\intern projecrts\AuctionX .net web project\AuctionX\bin\Debug\net8.0\AuctionX.pdb
 F:\intern projecrts\AuctionX .net web project\AuctionX\obj\Debug\net8.0\AuctionX.genruntimeconfig.cache
 F:\intern projecrts\AuctionX .net web project\AuctionX\obj\Debug\net8.0\ref\AuctionX.dll

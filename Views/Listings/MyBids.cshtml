@@ -1,26 +1,26 @@
-﻿@model PaginatedList<AuctionX.Models.Bid>
+﻿@model PaginatedList<AuctionX.Models.Listing>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Active Bids</h1>
+<h1>Active Listings</h1>
 
-@foreach (var bid in Model)
+@foreach (var listing in Model)
 {
     <div class="container" style="background-color:antiquewhite; margin-top:50px;margin-bottom:50px; padding:20px; border-radius: 10px;">
         <div class="row">
             <div class="col col-xs-6 col-lg-5">
-                <img src="~/image/@bid.Listing.ImagePath" style="max-width: 40px; max-height:40px;" />
+                <img src="~/image/@listing.ImagePath" style="max-width: 40px; max-height:40px;" />
             </div>
 
             <div class="col col-xs-6 col-lg-7">
                 <h5>
-                    <a asp-action="Details" asp-route-id="@bid.Listing.Id" style="color:black">@bid.Listing.Titile</a>
+                    <a asp-action="Details" asp-route-id="@listing.Id" style="color:black">@listing.Titile</a>
                 </h5>
-                <div>bid.Listing.Description</div>
-                <div>Bid: @bid.Listing.Price.ToString("N2")</div> @* number ekt passe 00 daanna *@
-                <div>Listed By: @bid.Listing.User.Email</div>
+                <div>@listing.Description</div>
+                <div>Bid: @listing.Price.ToString("N2")</div> @* number ekt passe 00 daanna *@
+                <div>Listed By: @listing.User.Email</div>
             </div>
         </div>
     </div>
@@ -28,7 +28,7 @@
 
 @if (!Model.Any())
 {
-    <p>Sorry , there are no active bids</p>
+    <p>Sorry , there are no active listings</p>
 }
 
 @{
@@ -47,3 +47,4 @@
 
 </div>
 
+}
