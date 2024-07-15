@@ -1,0 +1,49 @@
+﻿@model PaginatedList<AuctionX.Models.Bid>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Active Bids</h1>
+
+@foreach (var bid in Model)
+{
+    <div class="container" style="background-color:antiquewhite; margin-top:50px;margin-bottom:50px; padding:20px; border-radius: 10px;">
+        <div class="row">
+            <div class="col col-xs-6 col-lg-5">
+                <img src="~/image/@bid.Listing.ImagePath" style="max-width: 40px; max-height:40px;" />
+            </div>
+
+            <div class="col col-xs-6 col-lg-7">
+                <h5>
+                    <a asp-action="Details" asp-route-id="@bid.Listing.Id" style="color:black">@bid.Listing.Titile</a>
+                </h5>
+                <div>bid.Listing.Description</div>
+                <div>Bid: @bid.Listing.Price.ToString("N2")</div> @* number ekt passe 00 daanna *@
+                <div>Listed By: @bid.Listing.User.Email</div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (!Model.Any())
+{
+    <p>Sorry , there are no active bids</p>
+}
+
+@{
+    var prevDisabled = !Model.HasPreviousPage ? "disabled" : "";
+    var nextDisabled = !Model.HasNextPage ? "disabled" : "";
+}
+
+<div class="d-flex justify-content-center">
+    <a asp-action="Index" asp-route-pageNumber="(@Model.PageIndex - 1)" class="btn btn-default @prevDisabled">Previous</a>
+
+    <div class="btn" style="cursor:default">
+        Page @Model.PageIndex of @Model.TotalPages
+    </div>
+
+    <a asp-action="Index" asp-route-pageNumber="(@Model.PageIndex + 1)" class="btn btn-default @nextDisabled">Next</a>
+
+</div>
+

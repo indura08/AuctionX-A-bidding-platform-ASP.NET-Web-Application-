@@ -1,4 +1,5 @@
 ﻿using AuctionX.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace AuctionX.Data.Service
 {
@@ -13,6 +14,12 @@ namespace AuctionX.Data.Service
         {
             _context.Bids.Add(bid);
             await _context.SaveChangesAsync();
+        }
+
+        public IQueryable<Bid> GetAll()
+        {
+            var applicationDbContext = from a in _context.Bids.Include(l => l.Listing).ThenInclude(l => l.User) select a;
+            return applicationDbContext;
         }
     }
 }

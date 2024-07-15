@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using AuctionX.Data;
 using AuctionX.Models;
 using AuctionX.Data.Service;
+using System.Security.Claims;
 
 namespace AuctionX.Controllers
 {
@@ -16,12 +17,14 @@ namespace AuctionX.Controllers
         private readonly IListings _listingService;
         private readonly IBidsService _bidService;
         private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly ICommentsService _commentsService;
 
-        public ListingsController(IListings listingService, IWebHostEnvironment webHostEnvironment, IBidsService ibidsService)  
+        public ListingsController(ICommentsService commentsService , IListings listingService, IWebHostEnvironment webHostEnvironment, IBidsService ibidsService)  
         {
             _listingService = listingService;
             _webHostEnvironment = webHostEnvironment;
             _bidService = ibidsService;
+            _commentsService = commentsService;
         }
 
         // GET: Listings
@@ -37,6 +40,24 @@ namespace AuctionX.Controllers
 
             }
             return View(await PaginatedList<Listing>.CreateAsync(applicationDbContext.Where(l => l.IsSold == false).AsNoTracking(), pageNumber ?? 1, pageSize));
+        }
+
+        public async Task<IActionResult> MyListings(int? pageNumber)
+        {
+            var applicationDbContext = _listingService.Getall();
+
+            int pageSize = 3;
+            
+            return View("Index", await PaginatedList<Listing>.CreateAsync(applicationDbContext.Where(l => l.IdentityUserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).AsNoTracking(), pageNumber ?? 1, pageSize));      //methandi me complex process ekk wage krla thiynne log wela inna usermada me api gattu listings list eke aithi user kiyla check krla blna eka, ehma nm withri listings tiks denne 
+        }
+
+        public async Task<IActionResult> MyBids(int? pageNumber)
+        {
+            var applicationDbContext = _bidService.GetAll();
+
+            int pageSize = 3;
+
+            return View("Index", await PaginatedList<Bid>.CreateAsync(applicationDbContext.Where(l => l.IdentityUserId == User.FindFirstValue(ClaimTypes.NameIdentifier)).AsNoTracking(), pageNumber ?? 1, pageSize));      //methandi me complex process ekk wage krla thiynne log wela inna usermada me api gattu listings list eke aithi user kiyla check krla blna eka, ehma nm withri listings tiks denne 
         }
 
         // GET: Listings/Details/5
@@ -121,6 +142,21 @@ namespace AuctionX.Controllers
             await _listingService.SaveChnages();
 
             return View("Details" , listing);
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> AddComment([Bind("Id,Content,ListingId,IdentityUserId")] Comment comment)
+        {
+            //if (ModelState.IsValid)
+            //{
+            //    await _commentsService.Add(comment);
+            //}
+
+            await _commentsService.Add(comment);
+
+            var lsiting = await _listingService.GetById(comment.ListingId);
+            return View("Details", lsiting);
+
         }
 
 
