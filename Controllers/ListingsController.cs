@@ -28,7 +28,7 @@ namespace AuctionX.Controllers
         }
 
         // GET: Listings
-        public async Task<IActionResult> Index(int? pageNumber, string searchString)
+        public async Task<IActionResult> Index(int? pageNumber, string searchString)      //int? pageNumber: An optional integer for the page number. The ? means it can be null.
         {
             var applicationDbContext = _listingService.Getall();
 
@@ -36,7 +36,7 @@ namespace AuctionX.Controllers
             if (!string.IsNullOrEmpty(searchString))
             {
                 applicationDbContext = applicationDbContext.Where(a => a.Titile.Contains(searchString));
-                return View(await PaginatedList<Listing>.CreateAsync(applicationDbContext.Where(l => l.IsSold == false).AsNoTracking(), pageNumber ?? 1, pageSize));
+                return View(await PaginatedList<Listing>.CreateAsync(applicationDbContext.Where(l => l.IsSold == false).AsNoTracking(), pageNumber ?? 1, pageSize));        //.AsNoTracking(): Improves performance by telling Entity Framework not to track changes for these entities.
 
             }
             return View(await PaginatedList<Listing>.CreateAsync(applicationDbContext.Where(l => l.IsSold == false).AsNoTracking(), pageNumber ?? 1, pageSize));

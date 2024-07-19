@@ -17,8 +17,9 @@
                 
                 <div class="col col-xs-6 col-lg-7">
                     <h5>
-                        <a asp-action="Details" asp-route-id="@listing.Id" style="color:black">@listing.Titile</a>
-                    </h5>
+                    <a asp-action="Details" asp-route-id="@listing.Id" style="color:black">@listing.Titile</a>      @* The asp-route- prefix is used to specify route parameters. The id part indicates that you are setting a value for a route parameter named id *@.
+                    @* asp-route-name="@listing.Name" => nikmt hithamu ape detials method ek arguments dekk gnnwa , ekak id and ania name , id ekt adlwa uda code eka set krla thiynwa , me line eke thiyna me code ekt anuwa thami name parametr eka set krnne  *@
+                     </h5>
                     <div>@listing.Description</div>
                     <div>Bid: @listing.Price.ToString("N2")</div> @* number ekt passe 00 daanna *@ 
                     <div>Listed By: @listing.User.Email</div>

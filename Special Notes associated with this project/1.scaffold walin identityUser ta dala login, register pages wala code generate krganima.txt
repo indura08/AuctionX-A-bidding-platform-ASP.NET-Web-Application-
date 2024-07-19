@@ -1,0 +1,24 @@
+What is Scaffolding?
+=====================
+Scaffolding is a feature that helps you quickly generate some basic code and files for common tasks. It's like a starting template that you can then customize to fit your needs.
+
+
+Why Use Scaffolding?
+====================
+In ASP.NET Core, scaffolding is often used for setting up pages related to user management, like login, registration, and password reset. It saves you time by creating the necessary code and files for these features, which you can then tweak as needed.
+
+
+Scaffolding Identity Pages
+==========================
+When you hear about "scaffolding Identity pages", it means generating the default pages and code for handling user authentication and management (like login and registration). Here's how it works
+
+scaffolding walin login page ek generate krgnna steps tika
+----------------------------------------------------------
+
+1. solution bar eke project ame eka udin right click krla add kiyna ekn select krgnnwa "New Scaffolded item" kiyna eka
+
+2.eta passe ena window eke   wam patte kelaware list ekn identity kiyna eka selsct krgnnwa , eta passe add obnwa
+
+3. eta passe thwa window ekk enwa ethandi enwa mona code ekd apita one kiyla login ekd , logout ekd, register ekd wage dewal , ethanin apita one eka select krgnna thiynne.
+
+4.eta passe db context eka mokdda kiyla ethnama pahala thiynwa ethnain pae dbcontexteka select krla add denna thiynne , eta passe Areas/Identity/pages/account folder eke athule api select krgnna generated codes files tika add wenwa 

@@ -20,7 +20,7 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<IListings, ListingService>();
-builder.Services.AddScoped<IBidsService, BidsService>();
+builder.Services.AddScoped<IBidsService, BidsService>();            //The line builder.Services.AddScoped<IBidsService, BidsService>(); tells the ASP.NET Core dependency injection system that whenever it needs an IBidsService, it should create an instance of BidsService and use that.
 builder.Services.AddScoped<ICommentsService, CommentsService>();
 
 var app = builder.Build();

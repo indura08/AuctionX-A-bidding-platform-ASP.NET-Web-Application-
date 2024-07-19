@@ -17,16 +17,12 @@
       "PackagePath": "staticwebassets\\images\\9fce00cfde9bde606a33f95ee1f3d6f1.jpg"
     },
     {
-      "Id": "F:\\intern projecrts\\AuctionX .net web project\\AuctionX\\wwwroot\\images\\Calender_01.jpg",
-      "PackagePath": "staticwebassets\\images\\Calender_01.jpg"
-    },
-    {
-      "Id": "F:\\intern projecrts\\AuctionX .net web project\\AuctionX\\wwwroot\\images\\KT0060BS01_20CHAMPAGNE-6_2000x3001.jpg",
-      "PackagePath": "staticwebassets\\images\\KT0060BS01_20CHAMPAGNE-6_2000x3001.jpg"
-    },
-    {
       "Id": "F:\\intern projecrts\\AuctionX .net web project\\AuctionX\\wwwroot\\images\\class diagram.png",
       "PackagePath": "staticwebassets\\images\\class diagram.png"
+    },
+    {
+      "Id": "F:\\intern projecrts\\AuctionX .net web project\\AuctionX\\wwwroot\\images\\images.jpg",
+      "PackagePath": "staticwebassets\\images\\images.jpg"
     },
     {
       "Id": "F:\\intern projecrts\\AuctionX .net web project\\AuctionX\\wwwroot\\js\\site.js",
